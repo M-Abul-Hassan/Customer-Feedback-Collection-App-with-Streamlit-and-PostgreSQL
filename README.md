@@ -71,3 +71,73 @@ python -m venv venv
 venv\Scripts\activate    # For Windows
 # source venv/bin/activate  # For Mac/Linux
 
+
+
+# 🗃️ How to Create Database, Tables, and Columns in PgAdmin 4
+
+This guide walks you through the steps to create a PostgreSQL database, a table, and columns using the **PgAdmin 4** graphical interface.
+
+---
+
+## 🟢 Step 1: Open PgAdmin 4
+
+- Launch **PgAdmin 4**
+- Enter your **PostgreSQL master password** (e.g., `12345`)
+
+---
+
+## 🏗️ Step 2: Create a New Database
+
+1. In the left panel, right-click on **Databases**
+2. Select **Create > Database**
+3. In the popup:
+   - **Database Name**: `feedback_db`
+   - Leave other settings as default
+4. Click **Save**
+
+✅ Your database `feedback_db` is now created.
+
+---
+
+## 📋 Step 3: Create a Table
+
+1. Navigate to:
+
+Servers > PostgreSQL > Databases > feedback_db > Schemas > public > Tables
+
+
+
+2. Right-click on **Tables**
+3. Select **Create > Table**
+4. Under the **General** tab:
+- **Name**: `feedback` (or `Table` if you want it capitalized)
+
+5. Switch to the **Columns** tab
+6. Add the following columns:
+
+| Column Name   | Data Type   | Nullable | Default  | Notes                        |
+|---------------|-------------|----------|----------|------------------------------|
+| `id`          | `serial`    | ❌ No     | —        | Set as Primary Key (click the key icon) |
+| `name`        | `varchar`   | ❌ No     | —        |                              |
+| `email`       | `varchar`   | ❌ No     | —        |                              |
+| `message`     | `text`      | ❌ No     | —        |                              |
+| `submitted_at`| `timestamp` | ✅ Yes    | `now()`  | Automatically sets submission time |
+
+7. Click **Save**
+
+✅ The `feedback` table with required columns is created successfully.
+
+---
+
+## 👀 Step 4: View or Edit Data
+
+1. Right-click on the `feedback` table
+2. Select **View/Edit Data > All Rows**
+3. A table view will open showing all rows submitted (e.g., from your Streamlit app)
+
+This is where your submitted form data will appear in real time.
+
+---
+
+> 💡 **Tip**: You can also create this table using raw SQL queries if you prefer.
+
